@@ -16,21 +16,21 @@ export default function AdminDashboard() {
   }, []);
 
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/api/tasks/admin", {
+    const res = await fetch("https://taskmangermern.onrender.com/api/tasks/admin", {
       headers: { Authorization: `Bearer ${token}` }
     });
     setTasks(await res.json());
   };
 
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/api/auth/users", {
+    const res = await fetch("https://taskmangermern.onrender.com/api/auth/users", {
       headers: { Authorization: `Bearer ${token}` }
     });
     setUsers(await res.json());
   };
 
   const createTask = async () => {
-    await fetch("http://localhost:5000/api/tasks/admin", {
+    await fetch("https://taskmangermern.onrender.com/api/tasks/admin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

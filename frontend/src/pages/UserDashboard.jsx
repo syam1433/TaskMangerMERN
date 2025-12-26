@@ -8,7 +8,7 @@ export default function UserDashboard() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/auth/me", {
+    fetch("https://taskmangermern.onrender.com/api/auth/me", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -16,7 +16,7 @@ export default function UserDashboard() {
       .then(res => res.json())
       .then(setUser);
 
-    fetch("http://localhost:5000/api/tasks/user", {
+    fetch("https://taskmangermern.onrender.com/api/tasks/user", {
       headers: {
         Authorization: `Bearer ${token}`
       }
