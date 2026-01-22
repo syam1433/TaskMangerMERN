@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+
+    if (token && role) {
+      role === "admin" ? navigate("/admin") : navigate("/user");
+    }
+  }, []);
 
   const handleLogin = async () => {
     const res = await fetch("https://taskmangermern.onrender.com/api/auth/login", {
@@ -21,8 +30,11 @@ export default function Login() {
     }
 
     localStorage.setItem("token", data.token);
+    localStorage.setItem("role", data.role);
+
     data.role === "admin" ? navigate("/admin") : navigate("/user");
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
@@ -55,12 +67,11 @@ export default function Login() {
         </button>
 
         <p className="text-sm text-center text-gray-600 mt-4">
-        New user?{" "}
-        <a href="/register" className="text-indigo-600 font-semibold">
+          New user?{" "}
+          <a href="/register" className="text-indigo-600 font-semibold">
             Create account
-        </a>
+          </a>
         </p>
-
       </div>
     </div>
   );
