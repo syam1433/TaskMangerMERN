@@ -37,8 +37,6 @@ export default function UserDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-
-      {/* Top Bar */}
       <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow mb-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold">
@@ -52,7 +50,6 @@ export default function UserDashboard() {
             {tasks.filter(t => t.completed).length}/{tasks.length} Tasks Completed
           </span>
         </div>
-
         <button
           onClick={logout}
           className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
@@ -60,8 +57,6 @@ export default function UserDashboard() {
           Logout
         </button>
       </div>
-
-      {/* Tabs */}
       <div className="flex gap-6 mb-6 border-b">
         {["active", "completed", "overdue"].map(t => (
           <button
@@ -77,8 +72,6 @@ export default function UserDashboard() {
           </button>
         ))}
       </div>
-
-      {/* Task Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {filteredTasks.map(task => (
           <div key={task._id} className="bg-white p-4 rounded-xl shadow relative">
@@ -96,7 +89,6 @@ export default function UserDashboard() {
                 High Priority
               </span>
             </div>
-
             <div className="absolute top-4 right-4 w-4 h-4 border-2 border-gray-300 rounded-full"></div>
           </div>
         ))}

@@ -34,33 +34,28 @@ export default function Register() {
         <p className="text-gray-500 text-center mb-6">
           Register as a user
         </p>
-
         <input
           className="w-full p-2 mb-3 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
           placeholder="Full Name"
           onChange={(e) => setName(e.target.value)}
         />
-
         <input
           className="w-full p-2 mb-3 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-
         <input
           type="password"
           className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <button
           onClick={handleRegister}
           className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition"
         >
           Register
         </button>
-
         <p className="text-sm text-center text-gray-600 mt-4">
           Already have an account?{" "}
           <Link to="/" className="text-indigo-600 font-semibold">

@@ -9,7 +9,6 @@ export default function Login() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const role = localStorage.getItem("role");
-
     if (token && role) {
       role === "admin" ? navigate("/admin") : navigate("/user");
     }
@@ -21,20 +20,15 @@ export default function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-
     const data = await res.json();
-
     if (!data.token) {
       alert("Invalid credentials");
       return;
     }
-
     localStorage.setItem("token", data.token);
     localStorage.setItem("role", data.role);
-
     data.role === "admin" ? navigate("/admin") : navigate("/user");
   };
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
@@ -45,27 +39,23 @@ export default function Login() {
         <p className="text-gray-500 text-center mb-6">
           Login to your account
         </p>
-
         <input
           className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-
         <input
           type="password"
           className="w-full p-2 mb-6 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <button
           onClick={handleLogin}
           className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition"
         >
           Login
         </button>
-
         <p className="text-sm text-center text-gray-600 mt-4">
           New user?{" "}
           <a href="/register" className="text-indigo-600 font-semibold">

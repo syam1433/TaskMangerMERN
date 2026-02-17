@@ -57,8 +57,6 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-6">
-
-      {/* Top Bar */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">
           Admin Dashboard <span className="text-indigo-400">(Admin)</span>
@@ -70,8 +68,6 @@ export default function AdminDashboard() {
           Logout
         </button>
       </div>
-
-      {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-gray-800 p-4 rounded-xl">
           <p className="text-gray-400">Total Tasks</p>
@@ -86,25 +82,20 @@ export default function AdminDashboard() {
           <h2 className="text-3xl font-bold text-yellow-400">{pending}</h2>
         </div>
       </div>
-
-      {/* Create Task */}
       <div className="bg-gray-800 p-5 rounded-xl mb-6">
         <h3 className="font-semibold mb-3">Create Task</h3>
-
         <input
           className="w-full p-2 mb-2 rounded bg-gray-700 border border-gray-600"
           placeholder="Title"
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
-
         <input
           className="w-full p-2 mb-2 rounded bg-gray-700 border border-gray-600"
           placeholder="Description"
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
-
         <select
           className="w-full p-2 mb-3 rounded bg-gray-700 border border-gray-600"
           value={userEmail}
@@ -117,7 +108,6 @@ export default function AdminDashboard() {
             </option>
           ))}
         </select>
-
         <button
           onClick={createTask}
           className="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded"
@@ -125,8 +115,6 @@ export default function AdminDashboard() {
           Create Task
         </button>
       </div>
-
-      {/* Task Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {tasks.map(task => (
           <div
